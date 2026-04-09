@@ -29,9 +29,12 @@ public class Almacen {
     
     public void recepcionarPaquete(Paquete p, int fila, int col) {
         if(!codigos.contains(p.codigo)) {
-            if (paquetes[fila][col] == null) codigos.add(p.codigo);
-            paquetes[fila][col] = p;
-            System.out.println( paquetes[fila][col]);
+            if (paquetes[fila][col] == null) {
+                codigos.add(p.codigo);
+                paquetes[fila][col] = p;
+            } else {
+                System.out.println("Esa posición está ocupada");
+            }        
         } else {
             System.out.println("El código ya existe en el HashSet");
         }

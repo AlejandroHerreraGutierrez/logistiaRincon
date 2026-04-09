@@ -4,6 +4,8 @@
  */
 package logisticarincon;
 
+import java.util.Map;
+
 /**
  *
  * @author Alex HG
@@ -33,8 +35,13 @@ public class LogisticaRincon {
         almacen1.enviarACamion(1, 0);
         
         almacen1.mantenimientoSeguridad(7.5);
-        
         System.out.println(almacen1.toString());
+        
+        for (Map.Entry<String, Integer> paquete : almacen1.paquetesEnDestino.entrySet()) {
+            String destino = paquete.getKey();
+            int numero = paquete.getValue();
+            System.out.println("Destino: " + destino + " | Numero: " + numero);
+        }
         
         
     }
