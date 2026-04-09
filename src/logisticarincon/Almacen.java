@@ -7,6 +7,7 @@ package logisticarincon;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 
 /**
  *
@@ -28,9 +29,9 @@ public class Almacen {
     
     public void recepcionarPaquete(Paquete p, int fila, int col) {
         if(!codigos.contains(p.codigo)) {
-            System.out.println(paquetes[fila][col]);
             if (paquetes[fila][col] == null) codigos.add(p.codigo);
             paquetes[fila][col] = p;
+            System.out.println( paquetes[fila][col]);
         } else {
             System.out.println("El código ya existe en el HashSet");
         }
@@ -38,7 +39,7 @@ public class Almacen {
     
     public void enviarACamion(int fila, int col) {
         Paquete paquete = paquetes[fila][col];
-       // paquetes[fila][col] = null;
+        paquetes[fila][col] = null;
         
         colaSalida.add(paquete);
         
@@ -51,8 +52,12 @@ public class Almacen {
     }
     
     public void mantenimientoSeguridad(double pesoMaximo) {
-        for(Paquete paquete : colaSalida) {
-            if (paquete.peso > pesoMaximo) colaSalida.remove(paquete);
+    Iterator<Paquete> it = colaSalida.iterator();
+    while (it.hasNext()) {
+        if (it.next().peso > pesoMaximo) {
+            it.remove();
         }
     }
+}
+
 }

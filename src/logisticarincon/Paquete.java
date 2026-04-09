@@ -18,6 +18,7 @@ public class Paquete {
     public Paquete(String codigo, double peso, String destino) {
         this.codigo = codigo;
         this.peso = peso;
+        if (this.peso < 0) peso = 0;
         this.destino = destino;
     }
 

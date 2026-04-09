@@ -29,10 +29,12 @@ public class LogisticaRincon {
         
         almacen1.enviarACamion(1, 1);
         almacen1.enviarACamion(2, 0);
+        almacen1.enviarACamion(1, 2);
+        almacen1.enviarACamion(1, 0);
         
-        almacen1.mantenimientoSeguridad(7.50);
+        almacen1.mantenimientoSeguridad(7.5);
         
-        almacen1.toString();
+        System.out.println(almacen1.toString());
         
         
     }
